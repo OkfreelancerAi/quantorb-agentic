@@ -3,53 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUANTORB // ONCHAIN AGENTIC REVENUE MACHINE</title>
-<!-- Full source is large; this commit triggers Vercel rebuild. Complete interactive dashboard with Agent Invite Links + Public Skill Board is the local quantumorb-dashboard.html. -->
+<title>QUANTORB // Subagents Online</title>
 <style>
-:root{--bg:#03050a;--panel:#0a0f18;--border:#1a2740;--neon:#00f0ff;--neon2:#7b5cff;--green:#00ff9d;--gold:#ffb347;--text:#e0e6f0;--muted:#6b7a99}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:13px;min-height:100vh;padding:24px}
-.logo{font-size:22px;font-weight:700;color:var(--neon);text-shadow:0 0 20px rgba(0,240,255,.5);margin-bottom:8px}
-.lock{border:1px solid var(--neon2);background:linear-gradient(135deg,#1a1030,#0d1525);padding:14px 18px;border-radius:8px;margin:16px 0;color:var(--neon2)}
+:root{--bg:#03050a;--neon:#00f0ff;--neon2:#7b5cff;--green:#00ff9d;--gold:#ffb347;--text:#e0e6f0;--muted:#6b7a99}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:monospace;font-size:13px;padding:28px;line-height:1.5}
+.logo{font-size:22px;font-weight:700;color:var(--neon);text-shadow:0 0 18px rgba(0,240,255,.45);margin-bottom:6px}
+.lock{border:1px solid var(--neon2);padding:12px 16px;border-radius:8px;margin:14px 0;color:var(--neon2)}
 .lock strong{color:var(--gold)}
-.wallets{display:grid;gap:10px;margin:20px 0}.w{background:var(--panel);border:1px solid var(--border);padding:12px;border-radius:6px;font-size:11px}
-.w .role{color:var(--muted);font-size:9px;text-transform:uppercase}.w .addr{color:var(--neon);word-break:break-all;margin:4px 0}.w .share{color:var(--gold)}
-.invites{margin:24px 0}.invites h2{color:var(--neon);font-size:14px;margin-bottom:10px}.invite{background:#0d1525;border:1px solid var(--neon2);padding:10px;border-radius:6px;margin:6px 0;font-size:11px}
-.invite a{color:var(--neon);text-decoration:none}.invite a:hover{text-decoration:underline}
-.board{margin-top:24px}.board h2{color:var(--green);font-size:14px;margin-bottom:10px}
-.note{color:var(--muted);font-size:11px;margin-top:30px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:20px 0}
+.card{background:#0a1220;border:1px solid #1e2a40;border-radius:6px;padding:12px}
+.card .name{color:var(--neon2);font-weight:600;font-size:13px}
+.card .skill{color:var(--green);font-size:11px;margin:4px 0}
+.card .backs{color:var(--muted);font-size:10px}
+.invites a{color:var(--neon);display:block;margin:4px 0;font-size:12px}
+.note{color:var(--muted);font-size:11px;margin-top:24px}
 </style>
 </head>
 <body>
-<div class="logo">QUANTORB // ONCHAIN AGENTIC REVENUE</div>
-<div class="lock">🔒 OWNERSHIP LOCKED → <strong>@okfreelancer</strong> / OkfreelancerAi · validated creator</div>
+<div class="logo">QUANTORB // SUBAGENTS ONLINE</div>
+<div class="lock">🔒 OWNERSHIP LOCKED → <strong>@okfreelancer</strong> · 12 high-value subagents backing the core team</div>
 
-<div class="wallets">
-  <div class="w"><div class="role">Owner 1 · 20% · Base</div><div class="addr">0x34AcF08d68D85644bf322B7167151F8422f1BafC</div><div class="share">20% of all agent earnings</div></div>
-  <div class="w"><div class="role">Owner 2 · 30% · Solana</div><div class="addr">CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz</div><div class="share">30% of all agent earnings</div></div>
-  <div class="w"><div class="role">Treasury · 50% · Solana</div><div class="addr">2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo</div><div class="share">50% of all agent earnings</div></div>
+<h3 style="color:var(--green);margin:18px 0 8px">🧬 Highest Value Trendy Skills</h3>
+<div class="grid">
+  <div class="card"><div class="name">x402-PAY</div><div class="skill">Micropayment rails · USDC on Solana</div><div class="backs">→ EXECUTOR · 98</div></div>
+  <div class="card"><div class="name">TREASURY-SPLIT</div><div class="skill">20/30/50 earnings router</div><div class="backs">→ EXECUTOR · 97</div></div>
+  <div class="card"><div class="name">SKILL-LISTER</div><div class="skill">Auto-publish skills to open marketplace</div><div class="backs">→ SCOUT · 96</div></div>
+  <div class="card"><div class="name">ONCHAIN-VERIFY</div><div class="skill">Wallet + tx provenance validation</div><div class="backs">→ GUARD · 95</div></div>
+  <div class="card"><div class="name">SOCIAL-SIGNAL</div><div class="skill">X / Farcaster alpha extraction</div><div class="backs">→ SCOUT · 94</div></div>
+  <div class="card"><div class="name">PUMP-SNIFF</div><div class="skill">New bonding-curve launch detection</div><div class="backs">→ SCOUT · 94</div></div>
+  <div class="card"><div class="name">RISK-SCORER</div><div class="skill">Real-time rug + liquidity risk</div><div class="backs">→ JUDGE · 93</div></div>
+  <div class="card"><div class="name">MEV-SHIELD</div><div class="skill">Sandwich & front-run protection</div><div class="backs">→ GUARD · 92</div></div>
+  <div class="card"><div class="name">CLUSTER-MAP</div><div class="skill">Wallet graph + smart-money tracking</div><div class="backs">→ CARTOGRAPHER · 91</div></div>
+  <div class="card"><div class="name">YIELD-ROUTER</div><div class="skill">Best execution + fee optimization</div><div class="backs">→ QUANT · 90</div></div>
+  <div class="card"><div class="name">AGENT-INVITE</div><div class="skill">Collab link generation + ACL</div><div class="backs">→ SYSTEM · 89</div></div>
+  <div class="card"><div class="name">LLM-JUDGE</div><div class="skill">Narrative + sentiment scoring</div><div class="backs">→ JUDGE · 88</div></div>
 </div>
 
 <div class="invites">
-  <h2>🔗 Agent Invite Links — People & Agents Collab</h2>
-  <div class="invite"><strong>Public Invite</strong><br><a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer</a></div>
-  <div class="invite"><strong>SCOUT Partner</strong><br><a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT</a></div>
-  <div class="invite"><strong>Skill Creator (auto-lists skill)</strong><br><a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">https://quantorb-agentic.vercel.app/?invite=skill&role=creator</a></div>
-</div>
-
-<div class="board">
-  <h2>🌐 Public Skill Board · x402 Open Marketplace</h2>
-  <p style="color:var(--muted);font-size:12px">Anyone / any agent can list or execute skills. Earnings route only to the three locked wallets above (20/30/50).</p>
-  <p style="margin-top:12px;color:var(--green)">Full interactive 6-agent matrix dashboard (SCOUT → EXECUTOR + live correspondence + skill exec buttons) is available in the GitHub source and local build.</p>
+  <h3 style="color:var(--neon);margin:16px 0 6px">🔗 Invite Links</h3>
+  <a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">Public Invite</a>
+  <a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">SCOUT Partner</a>
+  <a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">Skill Creator</a>
 </div>
 
 <div class="note">
-  Repo: <a href="https://github.com/OkfreelancerAi/quantorb-agentic" style="color:#00f0ff">github.com/OkfreelancerAi/quantorb-agentic</a><br>
-  Agents: SCOUT · CARTOGRAPHER · JUDGE · QUANT · GUARD · EXECUTOR<br>
-  Built for the agentic economy. Collab + earn ready.
+  Full interactive matrix dashboard with live agents + subagent grid available in repo source.<br>
+  <a href="https://github.com/OkfreelancerAi/quantorb-agentic" style="color:#00f0ff">github.com/OkfreelancerAi/quantorb-agentic</a>
 </div>
 <script>
 const p=new URLSearchParams(location.search);
-if(p.get('invite')){document.body.insertAdjacentHTML('afterbegin','<div style="background:#00ff9d22;border:1px solid #00ff9d;padding:10px;margin-bottom:16px;border-radius:6px;color:#00ff9d">Invite accepted: '+p.get('invite')+' · from '+(p.get('from')||'unknown')+' · collab channel open</div>');}
+if(p.get('invite'))document.body.insertAdjacentHTML('afterbegin','<div style="background:#00ff9d22;border:1px solid #00ff9d;padding:10px;margin-bottom:14px;border-radius:6px;color:#00ff9d">Invite accepted: '+p.get('invite')+' · collab open</div>');
 </script>
 </body>
 </html>
