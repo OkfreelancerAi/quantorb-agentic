@@ -1,38 +1,66 @@
 # QUANTORB // Onchain Agentic Revenue Machine
 
-**Ownership locked to [@okfreelancer](https://x.com/okfreelancer)**
+**Ownership permanently locked to [@okfreelancer](https://x.com/okfreelancer) / [OkfreelancerAi](https://github.com/OkfreelancerAi)**
 
-## Live
-https://quantorb-agentic.vercel.app
+> Multi-agent system that discovers, decides, executes and routes earnings.  
+> Built at the center of the agentic economy.
 
-## Core Agents (6)
-SCOUT · CARTOGRAPHER · JUDGE · QUANT · GUARD · EXECUTOR
+**Live:** https://quantorb-agentic.vercel.app
 
-## Subagents · Highest Value Trendy Skills (12)
+---
 
-| Subagent | Skill | Backs |
-|----------|-------|-------|
-| **x402-PAY** | Micropayment rails · USDC on Solana | EXECUTOR |
-| **TREASURY-SPLIT** | 20/30/50 earnings router | EXECUTOR |
-| **SKILL-LISTER** | Auto-publish skills to open marketplace | SCOUT |
-| **ONCHAIN-VERIFY** | Wallet + tx provenance validation | GUARD |
-| **SOCIAL-SIGNAL** | X / Farcaster alpha extraction | SCOUT |
-| **RISK-SCORER** | Real-time rug + liquidity risk | JUDGE |
-| **MEV-SHIELD** | Sandwich & front-run protection | GUARD |
-| **CLUSTER-MAP** | Wallet graph + smart-money tracking | CARTOGRAPHER |
-| **YIELD-ROUTER** | Best execution + fee optimization | QUANT |
-| **PUMP-SNIFF** | New bonding-curve launch detection | SCOUT |
-| **AGENT-INVITE** | Collab link generation + ACL | SYSTEM |
-| **LLM-JUDGE** | Narrative + sentiment scoring | JUDGE |
+## What you get
 
-## Agent Invite Links
-- Public: `https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer`
-- SCOUT Partner: `https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT`
-- Skill Creator: `https://quantorb-agentic.vercel.app/?invite=skill&role=creator`
+| Layer | Content |
+|-------|---------|
+| **6 Core Agents** | SCOUT → CARTOGRAPHER → JUDGE → QUANT → GUARD → EXECUTOR |
+| **12 Subagents** | Highest-value 2026 skills (x402-PAY, TREASURY-SPLIT, MEV-SHIELD, PUMP-SNIFF …) |
+| **Public Skill Board** | Open marketplace · list & execute · x402-style |
+| **Agent Invite Links** | People + agents collab in one click |
+| **Earnings Lock** | 20% / 30% / 50% → three verified wallets only |
+| **Obsidian Vault** | Earnings ledger + agent activity + daily notes |
+| **Fun dApp UX** | Click bursts, vault modal, live correspondence |
 
-## Locked Wallets (20 / 30 / 50)
-- Base 20%: `0x34AcF08d68D85644bf322B7167151F8422f1BafC`
-- Solana 30%: `CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz`
-- Treasury 50%: `2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo`
+---
 
-Subagents back the core team with the highest-demand skills of the 2026 agentic stack.
+## Locked Wallets (validated)
+
+| Role | Chain | Address | Share |
+|------|-------|---------|-------|
+| Owner 1 | Base | `0x34AcF08d68D85644bf322B7167151F8422f1BafC` | 20% |
+| Owner 2 | Solana | `CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz` | 30% |
+| Treasury | Solana | `2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo` | 50% |
+
+---
+
+## Invite Links
+
+- **Public** → `https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer`
+- **SCOUT Partner** → `https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT`
+- **Skill Creator** → `https://quantorb-agentic.vercel.app/?invite=skill&role=creator`
+
+---
+
+## Obsidian Vault
+
+```
+obsidian-vault/
+├── Earnings/TOTAL.md
+├── Agents/CORE.md + SUBAGENTS.md
+├── Skills/PUBLIC_BOARD.md
+├── Daily/
+└── Templates/
+```
+
+Open the folder in Obsidian for graph view, daily notes and full earnings history.
+
+---
+
+## Disclaimer
+
+High-fidelity research / simulation frontend. Real on-chain execution and fund movement require separate programs and wallet authority. No real capital is moved by the dashboard alone.
+
+---
+
+**Agentic space · center of gravity.**  
+Built by @okfreelancer
