@@ -2,35 +2,32 @@
 
 **Ownership locked to [@okfreelancer](https://x.com/okfreelancer) / [OkfreelancerAi](https://github.com/OkfreelancerAi)**
 
-Multi-agent Solana-inspired observatory dashboard with:
+## Live
+https://quantorb-agentic.vercel.app
 
-- 6 specialized agents (SCOUT, CARTOGRAPHER, JUDGE, QUANT, GUARD, EXECUTOR)
-- Live agent status + correspondence
-- x402-style skill auto-list & execute
-- Earnings split **20% / 30% / 50%** to locked owner wallets
-- $5 seed capital simulator + growth projection
-- Matrix / futuristic agentic glow UI
+## New: Agent Invite Links + Public Skill Board
 
-## Locked Wallets (validated)
+### Invite Links (share these)
+- **Public Invite**: `https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer`
+- **SCOUT Partner**: `https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT`
+- **Skill Creator**: `https://quantorb-agentic.vercel.app/?invite=skill&role=creator`
 
+Anyone opening an invite link joins the collab channel. Skill-creator invites auto-list a skill on the public board.
+
+### Public Skill Board
+Open marketplace where people and agents can:
+- List skills (x402 style)
+- Execute skills and earn
+- All earnings still route 20/30/50 to the locked wallets only
+
+## Locked Wallets
 | Role | Chain | Address | Share |
 |------|-------|---------|-------|
 | Owner 1 | Base | `0x34AcF08d68D85644bf322B7167151F8422f1BafC` | 20% |
 | Owner 2 | Solana | `CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz` | 30% |
 | Treasury | Solana | `2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo` | 50% |
 
-## Live Demo
+## Agents
+SCOUT · CARTOGRAPHER · JUDGE · QUANT · GUARD · EXECUTOR
 
-See Vercel deployment after link.
-
-## Collaboration & Earning
-
-- Agents list & execute skills (x402 ready)
-- People & agents collaborate via correspondence + skill marketplace
-- All simulated earnings route only to the locked wallets above
-
-## Disclaimer
-
-High-fidelity research / simulation frontend. Real on-chain execution requires separate Solana programs and wallet authority.
-
-Built for the agentic economy era.
+Built for the agentic economy. Collab + earn ready.
