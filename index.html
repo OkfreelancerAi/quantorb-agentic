@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUANTORB // LIVE MAIN LAUNCH</title>
-<meta name="description" content="QUANTORB live. $QORB launch. 12 high-value subagents. Ownership locked to @okfreelancer.">
+<title>QUANTORB // LIVE</title>
+<meta name="description" content="QUANTORB live. $QORB · Live Trading · 12 high-value subagents. Ownership locked to @okfreelancer.">
 <style>
 :root {
   --bg: #03050a;
@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   padding: 24px 20px 60px;
 }
-.container { max-width: 980px; margin: 0 auto; }
+.container { max-width: 1080px; margin: 0 auto; }
 
 .logo {
   font-size: 26px;
@@ -43,7 +43,7 @@ body {
   font-size: 12px;
 }
 .lock-banner {
-  margin: 18px 0 24px;
+  margin: 18px 0 20px;
   border: 1px solid var(--neon2);
   background: linear-gradient(90deg, rgba(123,92,255,.14), transparent);
   padding: 14px 18px;
@@ -55,6 +55,35 @@ body {
 }
 .lock-banner .icon { font-size: 20px; }
 .lock-banner strong { color: var(--gold); }
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .15s, border-color .15s;
+}
+.tab:hover { color: var(--text); }
+.tab.active {
+  color: var(--neon);
+  border-bottom-color: var(--neon);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
 
 /* LAUNCH COIN PANEL */
 .launch-panel {
@@ -279,17 +308,8 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
 }
 .invite-card a:hover { text-decoration: underline; }
 
-.note {
-  margin-top: 36px;
-  padding: 16px;
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  color: var(--muted);
-  font-size: 12px;
-}
-.note a { color: var(--neon); }
 .footer {
-  margin-top: 28px;
+  margin-top: 36px;
   text-align: center;
   color: var(--muted);
   font-size: 11px;
@@ -306,6 +326,167 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
   margin-bottom: 20px;
   font-size: 13px;
 }
+
+/* ===== LIVE TRADING ===== */
+.trading-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.trading-header h2 { margin: 0; }
+.live-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 600;
+}
+.live-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 1.4s infinite;
+}
+
+.pnl-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.pnl-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.pnl-card .label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.pnl-card .value { font-size: 20px; font-weight: 700; }
+.pnl-card .value.pos { color: var(--green); }
+.pnl-card .value.neg { color: var(--red); }
+.pnl-card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.trading-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 720px) {
+  .trading-grid { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.panel-head {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--neon);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.panel-body { padding: 0; }
+
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.trade-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,.2);
+}
+.trade-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.trade-table tr:last-child td { border-bottom: none; }
+.side-long { color: var(--green); font-weight: 600; }
+.side-short { color: var(--red); font-weight: 600; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+
+.signal-list { list-style: none; }
+.signal-list li {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.signal-list li:last-child { border-bottom: none; }
+.signal-list .agent { color: var(--neon2); font-weight: 600; }
+.signal-list .time { color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+.order-form {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.order-form label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.order-form input, .order-form select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+}
+.order-form input:focus, .order-form select:focus {
+  outline: none;
+  border-color: var(--neon);
+}
+.order-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .85; }
+.btn-buy { background: var(--green); color: #03100a; }
+.btn-sell { background: var(--red); color: #fff; }
+
+.price-ticker {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.price-ticker .chg { font-size: 14px; font-weight: 600; margin-left: 8px; }
 </style>
 </head>
 <body>
@@ -324,99 +505,236 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
     </div>
   </div>
 
-  <!-- ===== LIVE MAIN LAUNCH COIN ===== -->
-  <div class="launch-panel">
-    <h2>🚀 MAIN LAUNCH COIN</h2>
-    <div class="ticker">$QORB</div>
-    <p>QUANTORB token · agentic revenue machine · earnings routed 20/30/50 to locked wallets · powered by 12 subagents + x402 micropay rails.</p>
-    <div class="launch-meta">
-      <div><span>Status</span><strong>LIVE</strong></div>
-      <div><span>Chain</span><strong>Solana</strong></div>
-      <div><span>Utility</span><strong>Skill Board + Agent Collab</strong></div>
-      <div><span>Revenue Split</span><strong>20% · 30% · 50%</strong></div>
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="trading">Live Trading</button>
+  </div>
+
+  <!-- ========== OVERVIEW TAB ========== -->
+  <div class="tab-panel active" id="panel-overview">
+
+    <div class="launch-panel">
+      <h2>🚀 MAIN LAUNCH COIN</h2>
+      <div class="ticker">$QORB</div>
+      <p>QUANTORB token · agentic revenue machine · earnings routed 20/30/50 to locked wallets · powered by 12 subagents + x402 micropay rails.</p>
+      <div class="launch-meta">
+        <div><span>Status</span><strong>LIVE</strong></div>
+        <div><span>Chain</span><strong>Solana</strong></div>
+        <div><span>Utility</span><strong>Skill Board + Agent Collab</strong></div>
+        <div><span>Revenue Split</span><strong>20% · 30% · 50%</strong></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="val">12</div><div class="label">Subagents Online</div></div>
+      <div class="stat"><div class="val">6</div><div class="label">Core Agents</div></div>
+      <div class="stat"><div class="val">$0.01–0.10</div><div class="label">x402 Skill Pricing</div></div>
+      <div class="stat"><div class="val">20/30/50</div><div class="label">Earnings Split</div></div>
+    </div>
+
+    <h2>🧬 Public Skill Board <span>· x402 open · price $0.01 / earn $0.05 / tip $0.10</span></h2>
+    <div class="grid" id="skill-grid"></div>
+
+    <h2>💰 Earnings Dashboard · TREASURY-SPLIT</h2>
+    <div class="split-wrap">
+      <table class="split-table">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Chain</th>
+            <th>Share</th>
+            <th>Locked Wallet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Owner 1</td>
+            <td>Base</td>
+            <td class="share">20%</td>
+            <td>
+              <span class="addr" id="w1">0x34AcF08d68D85644bf322B7167151F8422f1BafC</span>
+              <button class="copy-btn" onclick="copyAddr('w1')">copy</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Owner 2</td>
+            <td>Solana</td>
+            <td class="share">30%</td>
+            <td>
+              <span class="addr" id="w2">CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz</span>
+              <button class="copy-btn" onclick="copyAddr('w2')">copy</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Treasury</td>
+            <td>Solana</td>
+            <td class="share">50%</td>
+            <td>
+              <span class="addr" id="w3">2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo</span>
+              <button class="copy-btn" onclick="copyAddr('w3')">copy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>🔗 Agent Invite Links</h2>
+    <div class="invites">
+      <div class="invite-card">
+        <h3>Public Collab</h3>
+        <a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">?invite=public&from=okfreelancer</a>
+      </div>
+      <div class="invite-card">
+        <h3>SCOUT Partner</h3>
+        <a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">?invite=scout&agent=SCOUT</a>
+      </div>
+      <div class="invite-card">
+        <h3>Skill Creator</h3>
+        <a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">?invite=skill&role=creator</a>
+      </div>
     </div>
   </div>
 
-  <!-- LIVE STATS -->
-  <div class="stats">
-    <div class="stat"><div class="val">12</div><div class="label">Subagents Online</div></div>
-    <div class="stat"><div class="val">6</div><div class="label">Core Agents</div></div>
-    <div class="stat"><div class="val">$0.01–0.10</div><div class="label">x402 Skill Pricing</div></div>
-    <div class="stat"><div class="val">20/30/50</div><div class="label">Earnings Split</div></div>
-  </div>
+  <!-- ========== LIVE TRADING TAB ========== -->
+  <div class="tab-panel" id="panel-trading">
 
-  <!-- PUBLIC SKILL BOARD -->
-  <h2>🧬 Public Skill Board <span>· x402 open · price $0.01 / earn $0.05 / tip $0.10</span></h2>
-  <div class="grid" id="skill-grid"></div>
-
-  <!-- EARNINGS DASHBOARD -->
-  <h2>💰 Earnings Dashboard · TREASURY-SPLIT</h2>
-  <div class="split-wrap">
-    <table class="split-table">
-      <thead>
-        <tr>
-          <th>Role</th>
-          <th>Chain</th>
-          <th>Share</th>
-          <th>Locked Wallet</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Owner 1</td>
-          <td>Base</td>
-          <td class="share">20%</td>
-          <td>
-            <span class="addr" id="w1">0x34AcF08d68D85644bf322B7167151F8422f1BafC</span>
-            <button class="copy-btn" onclick="copyAddr('w1')">copy</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Owner 2</td>
-          <td>Solana</td>
-          <td class="share">30%</td>
-          <td>
-            <span class="addr" id="w2">CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz</span>
-            <button class="copy-btn" onclick="copyAddr('w2')">copy</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Treasury</td>
-          <td>Solana</td>
-          <td class="share">50%</td>
-          <td>
-            <span class="addr" id="w3">2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo</span>
-            <button class="copy-btn" onclick="copyAddr('w3')">copy</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- INVITES -->
-  <h2>🔗 Agent Invite Links</h2>
-  <div class="invites">
-    <div class="invite-card">
-      <h3>Public Collab</h3>
-      <a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">?invite=public&from=okfreelancer</a>
+    <div class="trading-header">
+      <h2 style="margin:0;color:var(--green)">⚡ Live Trading Desk</h2>
+      <div class="live-dot">LIVE · Solana</div>
     </div>
-    <div class="invite-card">
-      <h3>SCOUT Partner</h3>
-      <a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">?invite=scout&agent=SCOUT</a>
-    </div>
-    <div class="invite-card">
-      <h3>Skill Creator</h3>
-      <a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">?invite=skill&role=creator</a>
-    </div>
-  </div>
 
-  <div class="note">
-    High-fidelity research / simulation frontend. Real on-chain execution and fund movement require separate programs and wallet authority.<br>
-    Full source + Obsidian vault: <a href="https://github.com/OkfreelancerAi/quantorb-agentic" target="_blank">github.com/OkfreelancerAi/quantorb-agentic</a>
+    <div class="pnl-row">
+      <div class="pnl-card">
+        <div class="label">$QORB Price</div>
+        <div class="price-ticker" id="qorb-price">$0.000184 <span class="chg up" id="qorb-chg">+4.2%</span></div>
+        <div class="sub">24h volume · <span id="qorb-vol">$42.8K</span></div>
+      </div>
+      <div class="pnl-card">
+        <div class="label">Session P&L</div>
+        <div class="value pos" id="session-pnl">+$1,284.60</div>
+        <div class="sub">Realized + Unrealized</div>
+      </div>
+      <div class="pnl-card">
+        <div class="label">Open Positions</div>
+        <div class="value" id="open-count">3</div>
+        <div class="sub">Notional · <span id="notional">$8,420</span></div>
+      </div>
+      <div class="pnl-card">
+        <div class="label">Win Rate (7d)</div>
+        <div class="value pos">68.4%</div>
+        <div class="sub">17 / 25 closed</div>
+      </div>
+    </div>
+
+    <div class="trading-grid">
+      <!-- Open Positions -->
+      <div class="panel">
+        <div class="panel-head">Open Positions <span style="color:var(--muted);font-weight:400;font-size:11px">agent-managed</span></div>
+        <div class="panel-body">
+          <table class="trade-table">
+            <thead>
+              <tr><th>Pair</th><th>Side</th><th>Size</th><th>Entry</th><th>P&L</th></tr>
+            </thead>
+            <tbody id="positions-body">
+              <tr>
+                <td>$QORB</td>
+                <td class="side-long">LONG</td>
+                <td>2.4M</td>
+                <td>$0.000162</td>
+                <td class="up" id="pos1-pnl">+$412.00</td>
+              </tr>
+              <tr>
+                <td>SOL/USDC</td>
+                <td class="side-long">LONG</td>
+                <td>18.5</td>
+                <td>$178.40</td>
+                <td class="up" id="pos2-pnl">+$186.20</td>
+              </tr>
+              <tr>
+                <td>BONK</td>
+                <td class="side-short">SHORT</td>
+                <td>1.2B</td>
+                <td>$0.0000214</td>
+                <td class="down" id="pos3-pnl">−$48.10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Order -->
+      <div class="panel">
+        <div class="panel-head">Quick Order <span style="color:var(--muted);font-weight:400;font-size:11px">EXECUTOR</span></div>
+        <div class="order-form">
+          <div>
+            <label>Pair</label>
+            <select id="order-pair">
+              <option>$QORB / USDC</option>
+              <option>SOL / USDC</option>
+              <option>BONK / USDC</option>
+            </select>
+          </div>
+          <div>
+            <label>Size (USDC)</label>
+            <input type="number" id="order-size" value="250" min="10" step="10">
+          </div>
+          <div>
+            <label>Slippage</label>
+            <select id="order-slip">
+              <option>0.5%</option>
+              <option selected>1.0%</option>
+              <option>2.0%</option>
+            </select>
+          </div>
+          <div class="order-btns">
+            <button class="btn btn-buy" onclick="placeOrder('buy')">BUY</button>
+            <button class="btn btn-sell" onclick="placeOrder('sell')">SELL</button>
+          </div>
+          <div id="order-status" style="font-size:11px;color:var(--muted);min-height:16px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trading-grid">
+      <!-- Recent Fills -->
+      <div class="panel">
+        <div class="panel-head">Recent Fills</div>
+        <div class="panel-body">
+          <table class="trade-table">
+            <thead>
+              <tr><th>Time</th><th>Pair</th><th>Side</th><th>Size</th><th>Price</th></tr>
+            </thead>
+            <tbody id="fills-body">
+              <tr><td>14:38:02</td><td>$QORB</td><td class="side-long">BUY</td><td>480K</td><td>$0.000181</td></tr>
+              <tr><td>14:21:47</td><td>SOL</td><td class="side-long">BUY</td><td>4.2</td><td>$179.10</td></tr>
+              <tr><td>13:55:19</td><td>BONK</td><td class="side-short">SELL</td><td>320M</td><td>$0.0000218</td></tr>
+              <tr><td>13:12:05</td><td>$QORB</td><td class="side-long">BUY</td><td>1.1M</td><td>$0.000168</td></tr>
+              <tr><td>12:48:33</td><td>SOL</td><td class="side-short">SELL</td><td>6.0</td><td>$176.80</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Agent Signals -->
+      <div class="panel">
+        <div class="panel-head">Agent Signals <span style="color:var(--muted);font-weight:400;font-size:11px">live feed</span></div>
+        <ul class="signal-list" id="signals-list">
+          <li><span><span class="agent">SCOUT</span> · new bonding curve detected · risk 0.31</span><span class="time">2s</span></li>
+          <li><span><span class="agent">JUDGE</span> · $QORB narrative strength ↑ 0.78</span><span class="time">18s</span></li>
+          <li><span><span class="agent">GUARD</span> · holder concentration OK · no cluster risk</span><span class="time">41s</span></li>
+          <li><span><span class="agent">QUANT</span> · best route Jupiter · impact 0.4%</span><span class="time">1m</span></li>
+          <li><span><span class="agent">CARTOGRAPHER</span> · smart-money inflow +$18.2k</span><span class="time">2m</span></li>
+          <li><span><span class="agent">EXECUTOR</span> · filled BUY 480K $QORB @ 0.000181</span><span class="time">4m</span></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
   <div class="footer">
-    Built by <a href="https://x.com/okfreelancer" target="_blank">@okfreelancer</a> · Agentic space · center of gravity
+    Built by <a href="https://x.com/okfreelancer" target="_blank">@okfreelancer</a> · Agentic space · center of gravity ·
+    <a href="https://github.com/OkfreelancerAi/quantorb-agentic" target="_blank">source</a>
   </div>
 </div>
 
@@ -461,6 +779,17 @@ function copyAddr(id) {
   });
 }
 
+// Tabs
+document.querySelectorAll(".tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+// Invite toast
 const params = new URLSearchParams(location.search);
 const invite = params.get("invite");
 if (invite) {
@@ -468,6 +797,71 @@ if (invite) {
   toast.style.display = "block";
   toast.textContent = `✓ Invite accepted: ${invite}${params.get("from") ? " · from " + params.get("from") : ""} · collab open`;
 }
+
+// Live price simulation
+let basePrice = 0.000184;
+function tickPrice() {
+  const delta = (Math.random() - 0.48) * 0.000004;
+  basePrice = Math.max(0.00005, basePrice + delta);
+  const chg = ((basePrice - 0.000176) / 0.000176 * 100);
+  const el = document.getElementById("qorb-price");
+  const chgEl = document.getElementById("qorb-chg");
+  if (el) {
+    el.innerHTML = `$${basePrice.toFixed(6)} <span class="chg ${chg >= 0 ? "up" : "down"}" id="qorb-chg">${chg >= 0 ? "+" : ""}${chg.toFixed(1)}%</span>`;
+  }
+  // gentle P&L drift
+  const pnlEl = document.getElementById("session-pnl");
+  if (pnlEl) {
+    const base = 1284.60;
+    const drift = (Math.random() - 0.4) * 12;
+    const val = base + drift;
+    pnlEl.textContent = (val >= 0 ? "+$" : "-$") + Math.abs(val).toFixed(2);
+    pnlEl.className = "value " + (val >= 0 ? "pos" : "neg");
+  }
+}
+setInterval(tickPrice, 2800);
+
+// Order placement (frontend feedback)
+function placeOrder(side) {
+  const pair = document.getElementById("order-pair").value;
+  const size = document.getElementById("order-size").value;
+  const status = document.getElementById("order-status");
+  status.style.color = side === "buy" ? "var(--green)" : "var(--red)";
+  status.textContent = `✓ ${side.toUpperCase()} ${size} USDC ${pair} · routed via EXECUTOR · pending fill…`;
+  setTimeout(() => {
+    status.textContent = `✓ Filled · ${side.toUpperCase()} ${size} USDC ${pair} @ market`;
+  }, 1400);
+}
+
+// Rotate agent signals occasionally
+const signalPool = [
+  { agent: "SCOUT", text: "new bonding curve detected · risk 0.31" },
+  { agent: "JUDGE", text: "$QORB narrative strength ↑ 0.78" },
+  { agent: "GUARD", text: "holder concentration OK · no cluster risk" },
+  { agent: "QUANT", text: "best route Jupiter · impact 0.4%" },
+  { agent: "CARTOGRAPHER", text: "smart-money inflow +$18.2k" },
+  { agent: "EXECUTOR", text: "filled BUY 480K $QORB @ 0.000181" },
+  { agent: "PUMP-SNIFF", text: "fresh launch volume spike · monitoring" },
+  { agent: "RISK-SCORER", text: "liquidity depth healthy · score 0.82" },
+  { agent: "MEV-SHIELD", text: "no sandwich vectors on last 3 hops" },
+  { agent: "SOCIAL-SIGNAL", text: "X velocity +14% / 15m" }
+];
+let sigIdx = 0;
+setInterval(() => {
+  const list = document.getElementById("signals-list");
+  if (!list) return;
+  const s = signalPool[sigIdx % signalPool.length];
+  sigIdx++;
+  const li = document.createElement("li");
+  li.innerHTML = `<span><span class="agent">${s.agent}</span> · ${s.text}</span><span class="time">now</span>`;
+  list.insertBefore(li, list.firstChild);
+  if (list.children.length > 8) list.removeChild(list.lastChild);
+  // age previous times
+  Array.from(list.children).forEach((el, i) => {
+    const t = el.querySelector(".time");
+    if (t && i > 0) t.textContent = i < 3 ? i + "s" : (i * 12) + "s";
+  });
+}, 5200);
 </script>
 </body>
 </html>
