@@ -3,56 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUANTORB // Subagents Online</title>
+<title>QUANTORB // Onchain Agentic Revenue Machine</title>
+<meta name="description" content="12 high-value subagents backing 6 core agents. One onchain revenue machine. Ownership locked to @okfreelancer.">
 <style>
-:root{--bg:#03050a;--neon:#00f0ff;--neon2:#7b5cff;--green:#00ff9d;--gold:#ffb347;--text:#e0e6f0;--muted:#6b7a99}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:monospace;font-size:13px;padding:28px;line-height:1.5}
-.logo{font-size:22px;font-weight:700;color:var(--neon);text-shadow:0 0 18px rgba(0,240,255,.45);margin-bottom:6px}
-.lock{border:1px solid var(--neon2);padding:12px 16px;border-radius:8px;margin:14px 0;color:var(--neon2)}
-.lock strong{color:var(--gold)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:20px 0}
-.card{background:#0a1220;border:1px solid #1e2a40;border-radius:6px;padding:12px}
-.card .name{color:var(--neon2);font-weight:600;font-size:13px}
-.card .skill{color:var(--green);font-size:11px;margin:4px 0}
-.card .backs{color:var(--muted);font-size:10px}
-.invites a{color:var(--neon);display:block;margin:4px 0;font-size:12px}
-.note{color:var(--muted);font-size:11px;margin-top:24px}
+:root {
+  --bg: #03050a;
+  --bg2: #0a1220;
+  --neon: #00f0ff;
+  --neon2: #7b5cff;
+  --green: #00ff9d;
+  --gold: #ffb347;
+  --red: #ff4d6d;
+  --text: #e0e6f0;
+  --muted: #6b7a99;
+  --border: #1e2a40;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  min-height: 100vh;
+  padding: 24px 20px 60px;
+}
+.container { max-width: 980px; margin: 0 auto; }
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--neon);
+  text-shadow: 0 0 22px rgba(0,240,255,.55);
+  letter-spacing: 1px;
+}
+.tagline {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 12px;
+}
+.lock-banner {
+  margin: 18px 0 28px;
+  border: 1px solid var(--neon2);
+  background: linear-gradient(90deg, rgba(123,92,255,.14), transparent);
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lock-banner .icon { font-size: 20px; }
+.lock-banner strong { color: var(--gold); }
+
+h2 {
+  font-size: 15px;
+  color: var(--green);
+  margin: 36px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
+
+/* Stats bar */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.stat {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.stat .val {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--neon);
+}
+.stat .label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Skill Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  transition: border-color .2s, transform .15s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  border-color: var(--neon2);
+  transform: translateY(-2px);
+}
+.card .name {
+  color: var(--neon2);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+  padding-right: 48px;
+}
+.card .skill {
+  color: var(--green);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+.card .score {
+  background: rgba(0,255,157,.12);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.card .price {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 11px;
+  color: var(--gold);
+  background: rgba(255,179,71,.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Earnings table */
+.split-wrap {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.split-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.split-table th {
+  text-align: left;
+  color: var(--muted);
+  font-weight: 500;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,.25);
+}
+.split-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.split-table tr:last-child td { border-bottom: none; }
+.addr {
+  font-size: 11px;
+  color: var(--neon);
+  word-break: break-all;
+}
+.share {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+}
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.copy-btn:hover { border-color: var(--neon); color: var(--neon); }
+
+/* Invites */
+.invites {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.invite-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.invite-card h3 {
+  color: var(--neon);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.invite-card a {
+  color: var(--green);
+  text-decoration: none;
+  font-size: 12px;
+  word-break: break-all;
+}
+.invite-card a:hover { text-decoration: underline; }
+
+.note {
+  margin-top: 36px;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.note a { color: var(--neon); }
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+.footer a { color: var(--neon); text-decoration: none; }
+
+#invite-toast {
+  display: none;
+  background: rgba(0,255,157,.15);
+  border: 1px solid var(--green);
+  color: var(--green);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
 </style>
 </head>
 <body>
-<div class="logo">QUANTORB // SUBAGENTS ONLINE</div>
-<div class="lock">🔒 OWNERSHIP LOCKED → <strong>@okfreelancer</strong> · 12 high-value subagents backing the core team</div>
+<div class="container">
 
-<h3 style="color:var(--green);margin:18px 0 8px">🧬 Highest Value Trendy Skills</h3>
-<div class="grid">
-  <div class="card"><div class="name">x402-PAY</div><div class="skill">Micropayment rails · USDC on Solana</div><div class="backs">→ EXECUTOR · 98</div></div>
-  <div class="card"><div class="name">TREASURY-SPLIT</div><div class="skill">20/30/50 earnings router</div><div class="backs">→ EXECUTOR · 97</div></div>
-  <div class="card"><div class="name">SKILL-LISTER</div><div class="skill">Auto-publish skills to open marketplace</div><div class="backs">→ SCOUT · 96</div></div>
-  <div class="card"><div class="name">ONCHAIN-VERIFY</div><div class="skill">Wallet + tx provenance validation</div><div class="backs">→ GUARD · 95</div></div>
-  <div class="card"><div class="name">SOCIAL-SIGNAL</div><div class="skill">X / Farcaster alpha extraction</div><div class="backs">→ SCOUT · 94</div></div>
-  <div class="card"><div class="name">PUMP-SNIFF</div><div class="skill">New bonding-curve launch detection</div><div class="backs">→ SCOUT · 94</div></div>
-  <div class="card"><div class="name">RISK-SCORER</div><div class="skill">Real-time rug + liquidity risk</div><div class="backs">→ JUDGE · 93</div></div>
-  <div class="card"><div class="name">MEV-SHIELD</div><div class="skill">Sandwich & front-run protection</div><div class="backs">→ GUARD · 92</div></div>
-  <div class="card"><div class="name">CLUSTER-MAP</div><div class="skill">Wallet graph + smart-money tracking</div><div class="backs">→ CARTOGRAPHER · 91</div></div>
-  <div class="card"><div class="name">YIELD-ROUTER</div><div class="skill">Best execution + fee optimization</div><div class="backs">→ QUANT · 90</div></div>
-  <div class="card"><div class="name">AGENT-INVITE</div><div class="skill">Collab link generation + ACL</div><div class="backs">→ SYSTEM · 89</div></div>
-  <div class="card"><div class="name">LLM-JUDGE</div><div class="skill">Narrative + sentiment scoring</div><div class="backs">→ JUDGE · 88</div></div>
+  <div id="invite-toast"></div>
+
+  <div class="logo">QUANTORB // ONLINE</div>
+  <div class="tagline">12 high-value subagents · 6 core agents · one onchain revenue machine</div>
+
+  <div class="lock-banner">
+    <span class="icon">🔒</span>
+    <div>
+      <strong>OWNERSHIP PERMANENTLY LOCKED</strong> → <strong>@okfreelancer</strong><br>
+      <span style="color:var(--muted);font-size:12px">All earnings route exclusively to the three verified wallets. No middlemen.</span>
+    </div>
+  </div>
+
+  <!-- LIVE STATS -->
+  <div class="stats">
+    <div class="stat"><div class="val">12</div><div class="label">Subagents Online</div></div>
+    <div class="stat"><div class="val">6</div><div class="label">Core Agents</div></div>
+    <div class="stat"><div class="val">$0.01–0.10</div><div class="label">x402 Skill Pricing</div></div>
+    <div class="stat"><div class="val">20/30/50</div><div class="label">Earnings Split</div></div>
+  </div>
+
+  <!-- PUBLIC SKILL BOARD -->
+  <h2>🧬 Public Skill Board <span>· x402 open · price $0.01 / earn $0.05 / tip $0.10</span></h2>
+  <div class="grid" id="skill-grid"></div>
+
+  <!-- EARNINGS DASHBOARD -->
+  <h2>💰 Earnings Dashboard · TREASURY-SPLIT</h2>
+  <div class="split-wrap">
+    <table class="split-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Chain</th>
+          <th>Share</th>
+          <th>Locked Wallet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Owner 1</td>
+          <td>Base</td>
+          <td class="share">20%</td>
+          <td>
+            <span class="addr" id="w1">0x34AcF08d68D85644bf322B7167151F8422f1BafC</span>
+            <button class="copy-btn" onclick="copyAddr('w1')">copy</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Owner 2</td>
+          <td>Solana</td>
+          <td class="share">30%</td>
+          <td>
+            <span class="addr" id="w2">CG9DVW1yaBd6BeMjcJAzyTgCaY2nvp7oynW711BQUZoz</span>
+            <button class="copy-btn" onclick="copyAddr('w2')">copy</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Treasury</td>
+          <td>Solana</td>
+          <td class="share">50%</td>
+          <td>
+            <span class="addr" id="w3">2jAMeJZH1UeNSgdzdhHgYwAm6286aRqxMCdx52DBw7xo</span>
+            <button class="copy-btn" onclick="copyAddr('w3')">copy</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- INVITES -->
+  <h2>🔗 Agent Invite Links</h2>
+  <div class="invites">
+    <div class="invite-card">
+      <h3>Public Collab</h3>
+      <a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">?invite=public&from=okfreelancer</a>
+    </div>
+    <div class="invite-card">
+      <h3>SCOUT Partner</h3>
+      <a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">?invite=scout&agent=SCOUT</a>
+    </div>
+    <div class="invite-card">
+      <h3>Skill Creator</h3>
+      <a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">?invite=skill&role=creator</a>
+    </div>
+  </div>
+
+  <div class="note">
+    High-fidelity research / simulation frontend. Real on-chain execution and fund movement require separate programs and wallet authority.<br>
+    Full source + Obsidian vault: <a href="https://github.com/OkfreelancerAi/quantorb-agentic" target="_blank">github.com/OkfreelancerAi/quantorb-agentic</a>
+  </div>
+
+  <div class="footer">
+    Built by <a href="https://x.com/okfreelancer" target="_blank">@okfreelancer</a> · Agentic space · center of gravity
+  </div>
 </div>
 
-<div class="invites">
-  <h3 style="color:var(--neon);margin:16px 0 6px">🔗 Invite Links</h3>
-  <a href="https://quantorb-agentic.vercel.app/?invite=public&from=okfreelancer">Public Invite</a>
-  <a href="https://quantorb-agentic.vercel.app/?invite=scout&agent=SCOUT">SCOUT Partner</a>
-  <a href="https://quantorb-agentic.vercel.app/?invite=skill&role=creator">Skill Creator</a>
-</div>
-
-<div class="note">
-  Full interactive matrix dashboard with live agents + subagent grid available in repo source.<br>
-  <a href="https://github.com/OkfreelancerAi/quantorb-agentic" style="color:#00f0ff">github.com/OkfreelancerAi/quantorb-agentic</a>
-</div>
 <script>
-const p=new URLSearchParams(location.search);
-if(p.get('invite'))document.body.insertAdjacentHTML('afterbegin','<div style="background:#00ff9d22;border:1px solid #00ff9d;padding:10px;margin-bottom:14px;border-radius:6px;color:#00ff9d">Invite accepted: '+p.get('invite')+' · collab open</div>');
+const skills = [
+  { name: "x402-PAY", desc: "Micropayment rails · USDC on Solana", backs: "EXECUTOR", score: 98, price: "$0.01" },
+  { name: "TREASURY-SPLIT", desc: "20/30/50 earnings router", backs: "EXECUTOR", score: 97, price: "$0.01" },
+  { name: "SKILL-LISTER", desc: "Auto-publish skills to open marketplace", backs: "SCOUT", score: 96, price: "$0.05" },
+  { name: "ONCHAIN-VERIFY", desc: "Wallet + tx provenance validation", backs: "GUARD", score: 95, price: "$0.05" },
+  { name: "SOCIAL-SIGNAL", desc: "X / Farcaster alpha extraction", backs: "SCOUT", score: 94, price: "$0.05" },
+  { name: "PUMP-SNIFF", desc: "New bonding-curve launch detection", backs: "SCOUT", score: 94, price: "$0.05" },
+  { name: "RISK-SCORER", desc: "Real-time rug + liquidity risk", backs: "JUDGE", score: 93, price: "$0.10" },
+  { name: "MEV-SHIELD", desc: "Sandwich & front-run protection", backs: "GUARD", score: 92, price: "$0.10" },
+  { name: "CLUSTER-MAP", desc: "Wallet graph + smart-money tracking", backs: "CARTOGRAPHER", score: 91, price: "$0.10" },
+  { name: "YIELD-ROUTER", desc: "Best execution + fee optimization", backs: "QUANT", score: 90, price: "$0.10" },
+  { name: "AGENT-INVITE", desc: "Collab link generation + ACL", backs: "SYSTEM", score: 89, price: "$0.01" },
+  { name: "LLM-JUDGE", desc: "Narrative + sentiment scoring", backs: "JUDGE", score: 88, price: "$0.05" }
+];
+
+const grid = document.getElementById("skill-grid");
+skills.forEach(s => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="price">${s.price}</div>
+    <div class="name">${s.name}</div>
+    <div class="skill">${s.desc}</div>
+    <div class="meta">
+      <span>→ ${s.backs}</span>
+      <span class="score">${s.score}</span>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+function copyAddr(id) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = "copied";
+    setTimeout(() => btn.textContent = "copy", 1200);
+  });
+}
+
+const params = new URLSearchParams(location.search);
+const invite = params.get("invite");
+if (invite) {
+  const toast = document.getElementById("invite-toast");
+  toast.style.display = "block";
+  toast.textContent = `✓ Invite accepted: ${invite}${params.get("from") ? " · from " + params.get("from") : ""} · collab open`;
+}
 </script>
 </body>
 </html>
