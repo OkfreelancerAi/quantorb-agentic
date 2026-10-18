@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUANTORB // Onchain Agentic Revenue Machine</title>
-<meta name="description" content="12 high-value subagents backing 6 core agents. One onchain revenue machine. Ownership locked to @okfreelancer.">
+<title>QUANTORB // LIVE MAIN LAUNCH</title>
+<meta name="description" content="QUANTORB live. $QORB launch. 12 high-value subagents. Ownership locked to @okfreelancer.">
 <style>
 :root {
   --bg: #03050a;
@@ -43,7 +43,7 @@ body {
   font-size: 12px;
 }
 .lock-banner {
-  margin: 18px 0 28px;
+  margin: 18px 0 24px;
   border: 1px solid var(--neon2);
   background: linear-gradient(90deg, rgba(123,92,255,.14), transparent);
   padding: 14px 18px;
@@ -56,6 +56,69 @@ body {
 .lock-banner .icon { font-size: 20px; }
 .lock-banner strong { color: var(--gold); }
 
+/* LAUNCH COIN PANEL */
+.launch-panel {
+  margin: 0 0 28px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(255,179,71,.12), rgba(0,240,255,.06));
+  border-radius: 14px;
+  padding: 22px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.launch-panel::before {
+  content: "LIVE";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: var(--red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .55; }
+}
+.launch-panel h2 {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 18px;
+}
+.launch-panel .ticker {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--neon);
+  letter-spacing: 2px;
+  text-shadow: 0 0 18px rgba(0,240,255,.4);
+  margin-bottom: 6px;
+}
+.launch-panel p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 16px;
+  max-width: 620px;
+}
+.launch-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+}
+.launch-meta div span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+.launch-meta strong {
+  color: var(--green);
+  font-size: 14px;
+}
+
 h2 {
   font-size: 15px;
   color: var(--green);
@@ -66,7 +129,6 @@ h2 {
 }
 h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
 
-/* Stats bar */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -91,7 +153,6 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
   margin-top: 2px;
 }
 
-/* Skill Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -147,7 +208,6 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
   border-radius: 6px;
 }
 
-/* Earnings table */
 .split-wrap {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -195,7 +255,6 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
 }
 .copy-btn:hover { border-color: var(--neon); color: var(--neon); }
 
-/* Invites */
 .invites {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -254,7 +313,7 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
 
   <div id="invite-toast"></div>
 
-  <div class="logo">QUANTORB // ONLINE</div>
+  <div class="logo">QUANTORB // LIVE</div>
   <div class="tagline">12 high-value subagents · 6 core agents · one onchain revenue machine</div>
 
   <div class="lock-banner">
@@ -262,6 +321,19 @@ h2 span { opacity: .7; font-weight: 400; font-size: 12px; }
     <div>
       <strong>OWNERSHIP PERMANENTLY LOCKED</strong> → <strong>@okfreelancer</strong><br>
       <span style="color:var(--muted);font-size:12px">All earnings route exclusively to the three verified wallets. No middlemen.</span>
+    </div>
+  </div>
+
+  <!-- ===== LIVE MAIN LAUNCH COIN ===== -->
+  <div class="launch-panel">
+    <h2>🚀 MAIN LAUNCH COIN</h2>
+    <div class="ticker">$QORB</div>
+    <p>QUANTORB token · agentic revenue machine · earnings routed 20/30/50 to locked wallets · powered by 12 subagents + x402 micropay rails.</p>
+    <div class="launch-meta">
+      <div><span>Status</span><strong>LIVE</strong></div>
+      <div><span>Chain</span><strong>Solana</strong></div>
+      <div><span>Utility</span><strong>Skill Board + Agent Collab</strong></div>
+      <div><span>Revenue Split</span><strong>20% · 30% · 50%</strong></div>
     </div>
   </div>
 
